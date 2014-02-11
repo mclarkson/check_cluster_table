@@ -22,11 +22,11 @@ mv check_cluster_table /usr/lib/nagios/plugins/
 *EXAMPLE OUTPUT*
 
 ----
-CLUSTER OK: 0 warning, 1 critical.
+CLUSTER OK: 0 warning, 1 critical. | 'cluster problems'=1;
 
-CLUSTER WARNING: Match for '1,0,1'. 1 warning, 1 critical.
+CLUSTER WARNING: Match for '1,0,1'. 1 warning, 1 critical.  | 'cluster problems'=2;
 
-CLUSTER CRITICAL: Match for '1,1,1'. 1 warning, 2 critical.
+CLUSTER CRITICAL: Match for '1,1,1'. 1 warning, 2 critical. | 'cluster problems'=3;
 ----
 
 *MANUAL PAGE*

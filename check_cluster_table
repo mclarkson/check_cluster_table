@@ -215,27 +215,28 @@ main()
     [[ $bad -ne 1 ]] && s="s"
     smtxt="Match for '$match'. $allwarn warning, $allcrit critical."
     hmtxt="Match for '$match'. $allbad host$s down."
+    perf="'cluster problems'=$allbad;"
 
     if [[ $retval -eq $NAGCRIT ]]; then
         if [[ $SERVICECHECK -eq 1 ]]; then
-            echo "CLUSTER CRITICAL: $smtxt"
+            echo "CLUSTER CRITICAL: $smtxt | $perf"
         else
-            echo "CLUSTER CRITICAL: $hmtxt"
+            echo "CLUSTER CRITICAL: $hmtxt | $perf"
         fi
     elif [[ $retval -eq $NAGWARN ]]; then
         if [[ $SERVICECHECK -eq 1 ]]; then
-            echo "CLUSTER WARNING: $smtxt"
+            echo "CLUSTER WARNING: $smtxt | $perf"
         else
-            echo "CLUSTER WARNING: $hmtxt"
+            echo "CLUSTER WARNING: $hmtxt | $perf"
         fi
     else
         [[ $allbad -ne 1 ]] && s="s"
         if [[ $SERVICECHECK -eq 1 ]]; then
             soktxt="$allwarn warning, $allcrit critical."
-            echo "CLUSTER OK: $soktxt"
+            echo "CLUSTER OK: $soktxt | $perf"
         else
             hoktxt="$allbad host$s down."
-            echo "CLUSTER OK: $hoktxt"
+            echo "CLUSTER OK: $hoktxt | $perf"
         fi
     fi
 
