@@ -1,5 +1,5 @@
 ++++
-<img src="http://www.smorg.co.uk/images/check_cluster_table_x1.png"
+<img src="http://www.smorg.co.uk/images/check_cluster_table.png"
 alt="Plugin screenshot" style="float:none" />
 ++++
 
