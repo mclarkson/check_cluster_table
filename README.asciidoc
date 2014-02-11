@@ -6,6 +6,9 @@ alt="Plugin screenshot" style="float:none" />
 Check Cluster Table
 -------------------
 
+This is a variation on the check_cluster nagios check. It's mainly useful for
+low power devices, or very busy machines that continuously run at a high load.
+
 Reasoning and info available here:
 
 http://blogger.smorg.co.uk/2014/02/synology-diskstation-performance-tuning_10.html
