@@ -1,0 +1,63 @@
+++++
+<img src="http://www.smorg.co.uk/images/check_cluster_table_x1.png"
+alt="Plugin screenshot" style="float:none" />
+++++
+
+Check Cluster Table
+-------------------
+
+Reasoning and info available here:
+    http://blogger.smorg.co.uk/2014/02/synology-diskstation-performance-tuning_10.html
+
+*INSTALL*
+
+Example:
+
+----
+wget https://raw.github.com/mclarkson/check_cluster_table/master/check_cluster_table
+chmod +x check_cluster_table
+mv check_cluster_table /usr/lib/nagios/plugins/
+----
+
+*EXAMPLE OUTPUT*
+
+----
+CLUSTER OK: 0 warning, 1 critical.
+
+CLUSTER WARNING: Match for '1,0,1'. 1 warning, 1 critical.
+
+CLUSTER CRITICAL: Match for '1,1,1'. 1 warning, 2 critical.
+----
+
+*MANUAL PAGE*
+
+----
+$ ./check_cluster_table -h
+
+check_cluster_table - Check a number of results against a table.
+
+Usage: check_cluster_table (-s | -H) (-t col1[,col2,..,colN])*
+    -c NUM -d col1[,col2,..,colN]
+
+ -h      : Display this help text.
+ -S      : Check services.
+ -H      : Check hosts.
+ -t STR  : Valid statuses. Use one or more times. Comma delimited.
+           Use 1 or 0 only.
+ -d STR  : The current service or host statuses. Comma delimited.
+ -c NUM  : If the number of criticals in the '-d' option exceeds
+           NUM then this plugin will return critical. Default 2.
+           For Host checks this option relates to the number of
+           host that are in a non-OK state.
+
+Examples:
+
+If -d option represents Load, CPU, Swap Activity then the following
+will NOT alert when cpu and load are both warning/critical nor when
+CPU usage alone is warning/critical.
+
+ ./check_cluster_table -S -t 1,1,1 -t 0,1,1 -t 1,0,1 -t 0,0,1 -t 1,0,0 \
+    -d 0,1,0
+
+----
+
