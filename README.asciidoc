@@ -18,7 +18,7 @@ http://blogger.smorg.co.uk/2014/02/synology-diskstation-performance-tuning_10.ht
 Example:
 
 ----
-wget https://raw.github.com/mclarkson/check_cluster_table/master/check_cluster_table
+wget https://raw.githubusercontent.com/mclarkson/check_cluster_table/master/check_cluster_table
 chmod +x check_cluster_table
 mv check_cluster_table /usr/lib/nagios/plugins/
 ----
